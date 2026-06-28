@@ -1,17 +1,26 @@
+import { Routes, Route } from 'react-router-dom'
 import React from 'react'
-import Navbar from './component/Navbar'
+import Navbar from './components/Navbar'
+import Products from './pages/Products'
+import Cart from './pages/Cart'
+import Home from './pages/Home'
+import ProductDetails from './pages/ProductDetails'
 
 const App = () => {
   return (
     <>
-    <div className='bg-gray-100 min-h-screen'>
-      <Navbar />
-      <div className='p-8'>
-        <h2 className='text-2xl font-bold text-gray-700'>
-          Products will show here soon...
-        </h2>
+      <div className='bg-gray-100 min-h-screen'>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/product/:id' element={<ProductDetails />} />
+          <Route path='/cart' element={<Cart />} />
+        </Routes>
+
+
       </div>
-    </div>
+
 
     </>
   )
